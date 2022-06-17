@@ -1,0 +1,32 @@
+{
+	"actions": [
+		{
+			"collect": {
+				"name": "get_k8s_task",
+				"questions": [
+					{
+						"question": "What namespace do you want to work in?",
+						"prefill": "k8s_namespace",
+						"name": "k8s_namespace",
+						"type": "k8s_namespace"
+					},
+					{
+						"question": "What K8s resource type do you want to target?",
+						"prefill": "k8s_resource",
+						"name": "k8s_resource",
+						"type": "k8s_resource"
+					},
+					{
+						"question": "What action do you want to perform?",
+						"prefill": "k8s_action",
+						"name": "k8s_action",
+						"type": "k8s_action"
+					}
+				],
+				"on_complete": {
+					"redirect": "https://xxxxxxxxxxxxxx/execute_k8s_task"
+				}
+			}
+		}
+	]
+}
