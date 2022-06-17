@@ -1,0 +1,29 @@
+{
+    "actions": [
+      {
+        "collect": {
+          "name": "get_k8s_resource_and_action",
+          "questions": [
+            {
+              "question": "What namespace would you lke to use?",
+              "name": "namespace",
+              "type": "Twilio.ALPHANUMERIC"
+            },
+            {
+              "question": "What type of resource do you want to work on?",
+              "name": "resource_type",
+              "type": "Twilio.ALPHANUMERIC"
+            },
+            {
+              "question": "Which specific resource do you want to target?",
+              "name": "resource_name",
+              "type": "Twilio.ALPHANUMERIC"
+            }
+          ],
+          "on_complete": {
+            "redirect": "https://4ba0-76-122-76-62.ngrok.io/collect_target_resource"
+          }
+        }
+      }
+    ]
+  }
