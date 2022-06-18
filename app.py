@@ -61,6 +61,15 @@ def execute_k8s_task():
 
         return jsonify(actions=[{"say": message}, {"listen": True}])
  
+@app.route('/test', methods=['POST'])
+def test_route():
+    message = {}
+    pod_list = listPods("kube-system")
+    print(dir(pod_list))
+    pods = ", ".join(pod_list)
+    message = f"The following pods were found: , {pods}"
+    return jsonify(actions=[{"say": message}, {"listen": True}])
+
 def listDeployments(k8s_namespace):
 
     message = []
