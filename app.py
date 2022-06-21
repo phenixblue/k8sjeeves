@@ -7,10 +7,6 @@ from kubernetes import client, config
 from kubernetes.client.rest import ApiException
 from twilio.twiml.messaging_response import MessagingResponse
 
-
-# Constants
-namespace = "default"
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -28,6 +24,7 @@ def execute_k8s_task():
     message = None
 
     if k8s_namespace is None:
+        print("Namespace was not passed, using \"default\"")
         k8s_namespace = "default"
 
     if k8s_action is None or k8s_resource is None:
